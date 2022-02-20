@@ -48,7 +48,7 @@ def main() -> None:
         # First, the dimensions, position, and spacing are decided randomly. The position is a random number of window
         # lengths away from the roof, but it will stay within the house.
         window_length: int = randint(10, 20)
-        window_height_position: float = start_y - (randint(1, (house_height // window_length - 1)) * window_length)
+        window_height_position: float = start_y - (randint(1, int(house_height // window_length - 1)) * window_length)
         window_space: float = (start_x + window_length + i * approximate_window_spacing)
         window_proportion: float = (randint(10, 20) / 10)
 
