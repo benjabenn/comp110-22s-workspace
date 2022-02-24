@@ -1,4 +1,4 @@
-"""Implementation of some list-related skeleton functions."""
+"""Implementation of some list-related skeleton functions that remove all odd int elements of a list, find indexed subsets of a list, and concatenate two separate lists together."""
 
 
 __author__ = "730518701"
@@ -24,6 +24,8 @@ def sub(full_list: list[int], start_index: int, end_index: int) -> list[int]:
     while i < len(full_list):
         if i < start_index:
             full_list.pop(i)
+            start_index -= 1
+            end_index -= 1
         elif i < end_index:
             i += 1
         else:

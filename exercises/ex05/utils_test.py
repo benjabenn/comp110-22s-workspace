@@ -30,6 +30,12 @@ def test_sub_empty() -> None:
     assert sub(xs, 2, -1) == []
 
 
+def test_sub_included_subset() -> None:
+    """Tests for the proper return of a short subset of the given list, starting from the beginning with a negative start index."""
+    xs: list[int] = [22, 44, 66, 33, 11]
+    assert sub(xs, 1, 3) == [44, 66]
+
+
 def test_sub_short_subset() -> None:
     """Tests for the proper return of a short subset of the given list, starting from the beginning with a negative start index."""
     xs: list[int] = [22, 44, 66, 33, 11]
