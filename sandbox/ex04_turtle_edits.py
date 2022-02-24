@@ -15,7 +15,7 @@ SQUARE_ROOT_OF_2: float = (2 ** (1 / 2))
 
 
 def main() -> None:
-    """The start of a great big house scene.f
+    """The start of a great big house scene.
     
     The length and height of the house are first defined, and starting positions are determined to center the house.
     The main_house shape is created first, then the roof, then the many windows are added last.
@@ -72,7 +72,8 @@ def vertical_rectangle(rectangle_turtle: Turtle, corner_x: float, corner_y: floa
     
     The long side is vertically oriented. Can be used for windows. corner_x and corner_y are located at the top left corner.
     """
-    rectangle_turtle.ht()
+    # rectangle_turtle.ht()
+    rectangle_turtle.shape("turtle")
     rectangle_turtle.penup()
     rectangle_turtle.goto(corner_x, corner_y)
     rectangle_turtle.setheading(0.0)
@@ -123,8 +124,8 @@ def roof_outline(roofing_turtle: Turtle, inside_x: float, inside_y: float, insid
     The inside of the inner triangle is filled as well to give color to the roof.
     However, the inside of the roof itself is not colored in.
     """
-    roofing_turtle.ht()
-
+    # roofing_turtle.ht()
+    roofing_turtle.shape("turtle")
     # This first function call draws the inside triangle with no bottom. This triangle is filled with Duke blue (color defined in main()) because of the Duke fan in the attic.
     roofing_turtle.begin_fill()
     triangle_top(roofing_turtle, inside_x, inside_y, inside_length)
@@ -173,7 +174,8 @@ def short_rectangle(short_rect_turtle: Turtle, corner_x: float, corner_y: float,
     This function also has an inputted width and ratio of width to length. 
     This will serve as the overall shape of the house.
     """
-    short_rect_turtle.ht()
+    # short_rect_turtle.ht()
+    short_rect_turtle.shape("turtle")
     short_rect_turtle.penup()
     short_rect_turtle.setpos(corner_x, corner_y)
     short_rect_turtle.setheading(270)
