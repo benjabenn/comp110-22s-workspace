@@ -18,18 +18,34 @@ def invert(input: dict[str, str]) -> dict[str, str]:
     return result
 
 
-def favorite_color(input: dict[str, str]) -> dict[str, int]:
+def favorite_color(input: dict[str, str]) -> str:
     """Takes a dict of names and their favorite colors and returns the most common favorite color. Breaks ties with whichever color occurred first in the dict."""
-    results_dict: dict[str, int] = dict()
+    final_color: str = ""
+    final_color_occurrence: int = 0
 
     for key in input:
-        for existingkey in results_dict:
-            if input[key] in results_dict:
-                results_dict[input[key]] += 1
-            else:
-                results_dict[input[key]] = 1
-    
-    return results_dict
+        color_name: str = input[key]
+        color_frequency: int = 0
+        # This for...in loop creates a frequency of occurrence for each value
+        for frequency_key in input:
+            if color_name == input[frequency_key]:
+                color_frequency += 1
+        # Tests if the color frequency determined for the new value is greater then the older one, if so, the final values are set to that.
+        if color_frequency > final_color_occurrence:
+            final_color = color_name
+            final_color_occurrence = color_frequency
+    # No line of code necessary to break ties, as a new value after the first set one will never be assigned, therefore the first one always wins.
+    return final_color
 
 
-print(favorite_color({"Marc": "yellow", "Ezri": "blue", "Kris": "blue"}))
+def count(input: list[str]) -> dict[str, int]:
+    """From an inputted list, counts the number of times each item in that list occurs and stores the items as keys with number of occurrences as corresponding values."""
+    result_dict: dict[str, int] = {}
+
+    for key in input:
+        if key in result_dict:
+            result_dict[key] += 1
+        else:
+            result_dict[key] = 1
+
+    return result_dict
