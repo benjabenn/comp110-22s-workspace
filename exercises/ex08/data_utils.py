@@ -91,7 +91,7 @@ def concat(first_data_table: dict[str, list[str]], second_data_table: dict[str, 
 
 
 def count(input_list: list[str]) -> dict[str, int]:
-    """This function takes a list of str and counts the occurrences of an item in a list, assigning the item as the key in a new dict and the count as its associated value."""
+    """This function takes a list of str and counts the occurrences of all items in a list, assigning each item as the key in a new dict and the count as its associated value."""
     result: dict[str, int] = {}
 
     for items in input_list:
@@ -99,5 +99,19 @@ def count(input_list: list[str]) -> dict[str, int]:
             result[items] += 1
         else:
             result[items] = 1
+
+    return result
+
+
+def average(input_data_table: dict[str, list[str]]) -> dict[str, float]:
+    """This function returns the average of all the items in each column into a new dictionary with only one value for each key."""
+    result: dict[str, float] = {}
+
+    for items in input_data_table:
+        average_value: float = 0.0
+        for values in input_data_table[items]:
+            average_value += float(values)
+        average_value /= len(input_data_table[items])
+        result[items] = average_value
 
     return result
