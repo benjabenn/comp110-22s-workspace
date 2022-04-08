@@ -115,3 +115,23 @@ def average(input_data_table: dict[str, list[str]]) -> dict[str, float]:
         result[items] = average_value
 
     return result
+
+
+def equal_to_masked(data_table: dict[str, list[str]], column: list[str], target: str) -> dict[str, list[str]]:
+    """Uses a mask to filter an inputted data table based on values of one column being equal to an inputted target."""
+    result_bool: list[bool] = []
+    result_list: list[str] = []
+    result: dict[str, list[str]] = {}
+
+    for values in column:
+        result_bool.append(values == target)
+
+    for keys in data_table:
+        result_list = []
+        for items in range(len(result_bool)):
+            if result_bool[items]:
+                result_list.append(column[items])
+        
+        result[keys] = result_list
+
+    return result
