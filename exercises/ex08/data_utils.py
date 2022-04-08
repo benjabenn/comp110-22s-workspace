@@ -130,8 +130,27 @@ def equal_to_masked(data_table: dict[str, list[str]], column: list[str], target:
         result_list = []
         for items in range(len(result_bool)):
             if result_bool[items]:
-                result_list.append(column[items])
-        
+                result_list.append(data_table[keys][items])
         result[keys] = result_list
 
     return result
+
+
+def median_it(input_list: list[str]) -> float:
+    """Finds the median of an input list; if len is odd, middle term, if len is even, average of middle two."""
+    # Start by creating a copy of the list with all values as ints
+    int_list: list[int] = []
+    for items in input_list:
+        int_list.append(int(items))
+    
+    # Sort the list with sorted(), declare length as variable
+    ordered_list: list[int] = sorted(int_list)
+    length: int = len(ordered_list)
+
+    # Odd length is divided by 2 and truncated, even length includes the term before that and averaged
+    if length % 2 == 1:
+        return float(ordered_list[length // 2])
+    else:
+        first_middle_term: float = float(ordered_list[(length // 2) - 1])
+        second_middle_term: float = float(ordered_list[length // 2])
+        return float((first_middle_term + second_middle_term) / 2)
