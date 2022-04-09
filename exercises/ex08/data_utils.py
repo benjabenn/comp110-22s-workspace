@@ -73,6 +73,17 @@ def select(input_data_table: dict[str, list[str]], selected_columns: list[str]) 
     return result
 
 
+def select_float_dict(input_data_table: dict[str, float], selected_keys: list[str]) -> dict[str, float]:
+    """Returns only the selected columns given by str in a list from a given table into another table."""
+    result: dict[str, float] = {}
+
+    for keys in input_data_table:
+        if keys in selected_keys:
+            result[keys] = input_data_table[keys]
+
+    return result
+
+
 def concat(first_data_table: dict[str, list[str]], second_data_table: dict[str, list[str]]) -> dict[str, list[str]]:
     """Combines two column based tables into one without mutation."""
     result: dict[str, list[str]] = {}
