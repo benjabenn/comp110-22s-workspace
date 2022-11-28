@@ -2,8 +2,9 @@
 
 # Import and initialize the pygame library
 from random import randint
+
 import pygame
- 
+
 pygame.init()
  
 # Set up the drawing window

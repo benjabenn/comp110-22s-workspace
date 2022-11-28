@@ -10,15 +10,14 @@ def max(input: list[int]) -> int:
     while i < len(input):
         if i == 0:
             current_max = input[i]
-        elif i > 0:
-            if input[i] > current_max:
-                current_max = input[i]
+        elif i > 0 and input[i] > current_max:
+            current_max = input[i]
         i += 1
     return current_max
 
 
 def main() -> None:
-    list = [10, 4, 5, 8, 7, 9]
+    list = [1, 8, 9, 3, 6, 11, 4, 2, 1, 4, 2, 7, 5]
     print(f"{max(list)}")
 
 

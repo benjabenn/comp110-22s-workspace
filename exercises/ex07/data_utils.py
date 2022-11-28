@@ -41,6 +41,7 @@ def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
     result: dict[str, list[str]] = {}
 
     first_row: dict[str, str] = row_table[0]
+    print(row_table[0])
     for column in first_row:
         result[column] = column_values(row_table, column)
 
@@ -54,7 +55,9 @@ def head(input_data_table: dict[str, list[str]], num_rows: int) -> dict[str, lis
     for column_names in input_data_table:
         data_column: list[str] = []
         i: int = 0
+        
         while i < num_rows and i < len(input_data_table[column_names]):
+            print(input_data_table[column_names][i])
             data_column.append(input_data_table[column_names][i])
             i += 1
         result[column_names] = data_column
